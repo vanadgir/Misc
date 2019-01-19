@@ -1,0 +1,23 @@
+,race,class,background,stat1,stat2,stat3,stat4,stat5,stat6
+0,Half-Elf,Bard,Sage,14,13,12,14,13,14
+1,Dwarf,Cleric,Soldier,15,16,15,18,8,16
+2,Gnome,Fighter,Guild Artisan/Guild Merchant,8,13,13,8,6,10
+3,Halfling,Paladin,Urchin,15,11,12,11,12,18
+4,Dwarf,Wizard,Hermit,15,11,7,17,14,15
+5,Gnome,Druid,Soldier,12,16,12,10,9,13
+6,Human,Wizard,Urchin,9,9,15,10,9,8
+7,Human,Druid,Outlander,14,10,13,15,17,10
+8,Dwarf,Fighter,Folk Hero,10,12,9,11,11,10
+9,Dragonborn,Fighter,Outlander,9,13,15,14,14,14
+10,Half-Orc,Ranger,Urchin,12,13,11,13,14,12
+11,Half-Elf,Bard,Hermit,15,13,9,10,9,13
+12,Halfling,Monk,Gladiator,9,10,16,11,13,4
+13,Half-Elf,Ranger,Urchin,12,16,17,9,17,12
+14,Dragonborn,Bard,Hermit,13,16,9,17,9,14
+15,Gnome,Warlock,Soldier,13,8,5,15,11,11
+16,Human,Barbarian,Folk Hero,12,13,13,15,9,12
+17,Tiefling,Ranger,Sailor,13,15,6,8,16,8
+18,Dwarf,Wizard,Gladiator,13,13,11,15,12,15
+19,Half-Orc,Wizard,Gladiator,10,7,12,14,8,5
+20,Halfling,Paladin,Gladiator,10,13,13,10,9,10
+21,Half-Elf,Druid,Outlander,14,11,15,8,15,17

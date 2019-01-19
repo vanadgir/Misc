@@ -1,6 +1,7 @@
 import os
 from random import choice
 import random
+import pandas as pd
 
 # TITLE
 os.system('clear')
@@ -15,46 +16,35 @@ classes = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk','Paladin', 
 
 backgrounds = ['Acolyte', 'Charlatan', 'Criminal/Spy', 'Entertainer','Folk Hero', 'Gladiator', 'Guild Artisan/Guild Merchant', 'Hermit', 'Knight', 'Noble', 'Outlander', 'Pirate', 'Sage', 'Sailor', 'Soldier', 'Urchin']
 
-#savedDict = {}
-
+# rolls 4 dice, drops lowest, gets sum
 def stat_roll():
     roll = [random.randint(1,6), random.randint(1,6), random.randint(1,6), random.randint(1,6)]
     roll = int(sum(sorted(roll)[1:]))
     return roll
 
-#def save_dindle(char, stat_points):
-    #savedDict = {'race':str(char[0]), 'class':str(char[1]), 'background':str(char[2]),
-    #    'stat1':stat_points[0], 'stat2':stat_points[1], 'stat3':stat_points[2],
-    #    'stat4':stat_points[3], 'stat5':stat_points[4], 'stat6':stat_points[5]}
-    #print('Dindle Saved.')
+dindl_history = []
 
-#def load_dindle():
-    #os.system('clear')
-    #print(savedDict)
-    #print('|---------------------------------')
-    #print('| Hello!                          ')
-    #print('| Nice to meet you! I am:         ')
-    #print('|---------------------------------')
-    #print('| RACE:   ' + str(char[0]) + '    ')
-    #print('| CLASS:  ' + str(char[1]) + '    ')
-    #print('| B/G:    ' + str(char[2]) + '    ')
-    #print('|---------------------------------')
-    #print('| My available stats are:         ')
-    #print('| '+str(stat_points[0])+', '+str(stat_points[1])+', '+str(stat_points[2])+', '+str(stat_points[3])+', '+str(stat_points[4])+', '+str(stat_points[5]))
-    #print('|---------------------------------')
-
+# generate random character
 def random_char():
+    # choose race, class, background, and roll for 6 stat points
     char = [choice(races),choice(classes),choice(backgrounds)]
     stat_points = [stat_roll(), stat_roll(), stat_roll(),stat_roll(), stat_roll(), stat_roll()]
 
+    colnames = ['race', 'class', 'background', 'stat1', 'stat2', 'stat3', 'stat4', 'stat5', 'stat6']
+
+    char_stats = [char[0], char[1], char[2], stat_points[0], stat_points[1], stat_points[2], stat_points[3], stat_points[4], stat_points[5]]
+
+    dindl_history.append(char_stats)
+
+    # print the character profile
     os.system('clear')
     print('|---------------------------------')
     print('| Hello!                          ')
     print('| Nice to meet you! I am:         ')
     print('|---------------------------------')
-    print('| RACE:   ' + str(char[0]) + '    ')
-    print('| CLASS:  ' + str(char[1]) + '    ')
-    print('| B/G:    ' + str(char[2]) + '    ')
+    print('| RACE:   ' + char[0] + '    ')
+    print('| CLASS:  ' + char[1] + '    ')
+    print('| B/G:    ' + char[2] + '    ')
     print('|---------------------------------')
     print('| My available stats are:         ')
     print('| ' + str(stat_points[0]) + ', ' + str(stat_points[1]) + ', ' + str(stat_points[2]) + ', ' + str(stat_points[3]) + ', ' + str(stat_points[4]) + ', ' + str(stat_points[5]))
@@ -67,7 +57,10 @@ def random_char():
     if (howToProceed=='d'):
         random_char()
     elif (howToProceed=='x'):
+        df = pd.DataFrame(dindl_history, columns=colnames)
+        df.to_csv('dindl.csv')
         print("Thanks for Dindlin'!")
 
+# BEGINNING OF DINDLER
 input('Press Enter to get a random DnD character!')
 random_char()
